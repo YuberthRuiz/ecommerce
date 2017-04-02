@@ -47,11 +47,11 @@
 
 </head>
 <body class="body">
-  <form class="ul2" method="GET">
+  <form class="ul2" action="../account_management/login.php" method="POST">
     Username: <input type="text" name="login" value=""><br />
     Password: <input type="text" name="passw" value=""><br />
     <input type="submit" name="submit" value="LogIn" /><br />
-    <input type="submit" name="submit" value="Create New Account" />
+    <input type="submit" name="submit" formaction="../account_management/create_account.php" value="Create New Account"/>
   </form>
 
 </body>
