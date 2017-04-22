@@ -1,0 +1,145 @@
+.general {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.topbar {
+	width: 100%;
+	height: 8%;
+	background-color: #0050A0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	border-style: solid;
+	border-width: 1px;
+	z-index: 5;
+}
+
+.leftbar {
+	width: 15%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 93%;
+	top: 8%;
+	left: 0px;
+	border-left: solid;
+	border-left-width: 1px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow: scroll;
+	z-index: 3;
+}
+
+.catlist {
+	width: 100%;
+	height: 6%;
+
+	margin-left: 0px;
+	padding-left: 10%;
+
+	text-align: left;
+	font-size: 3.1vmin;
+
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+}
+
+.catlist:hover {
+	background-color: #0050A0;
+	transition: background-color 0.2s ease-out;
+}
+
+.catlist:active {
+	background-color: #12A8E0;
+}
+
+.mainpage {
+	position: relative;
+	padding: 1%;
+	left: 15%;
+	top: 8%;
+	width: 85%;
+	height: 92%;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	z-index: 1;
+}
+
+hr {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.itmlist {
+	display: inline-block;
+	width: 26%;
+	height: 26%;
+	margin: 1%;
+
+	border-radius: 5%;
+	padding: 2%;
+
+	background-color: #f1f1f1;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	text-align: center;
+	font-size: 2.6vmin;
+}
+
+.itmlist:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition: box-shadow 0.2s ease-out;
+}
+
+.connect {
+	display: inline-block;
+	float: right;
+
+	width: 20%;
+	height: 100%;
+	padding-left: 1%;
+	border-left-style: solid;
+	border-left-width: thin;
+}
+
+.login {
+	width: 100%;
+	height: 30%;
+	padding-top: 0.9%;
+	font-size: 2vmin;
+	color: white;
+}
+
+.loginforms {
+	float: right;
+	width: 70%;
+	height: 100%;
+}
+
+.loginsubm {
+	width: 100%;
+	height: 100%;
+
+	margin-left: 0px;
+	padding-left: 10%;
+	background-color: yellow;
+
+	text-align: center;
+	font-size: 2vmin;
+	border-radius: 1%;
+
+	border: none;
+	cursor: pointer;
+}
+
+.loginsubm:hover {
+	background-color: #0050A0;
+	transition: background-color 0.2s ease-out;
+}
