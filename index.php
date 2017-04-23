@@ -1,12 +1,15 @@
 <?php
+	session_start();
+	include ('./account_management/connect.php');
+	include('./data_management/connectdb.php');
 	include ('./populate/populate.php');
-	include ('./account_management/connect.php')
 ?>
 
 <html>
 <head>
+	<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 	<meta charset="UTF-8">
-	<title>TechnoSwag - 
+	<title>TechSwag - 
 		<?php
 			if (isset($_GET['cat'])) echo $_GET['cat'];
 			else echo "Home"; 
@@ -19,10 +22,24 @@
 
 <div class="general">
 
+
 	<div class="topbar">
 		<div class="connect">
+			<?php login_main()?>
 			<?php connect_main()?>
 		</div>
+		<div class="containertop">
+			<form method="GET" action=".">
+				<input type="submit" class="searchsubm" name="submitsearch" value="Search">
+				<input type="text" class="searchtext" name="searchtext" placeholder="Search for item name...">
+			</form>
+			<form method="GET" action=".">
+				<input type="submit" class="logocart" name="cart" value="My Cart">
+			</form>
+		</div>
+		<form method="GET" action=".">
+			<input type="submit" class="logotech" name="return" value="TechSwag"/>
+		</form>
 	</div>
 
 	<div class="leftbar">
@@ -30,7 +47,11 @@
 			<br/>
 			<input type="submit" class="catlist" name="cat" value="Home" />
 			<input type="submit" class="catlist" name="cat" value="Info" />
-			<input type="submit" class="catlist" name="cat" value="Admin" />
+			<?php
+				$query = 'SELECT * FROM admin WHERE login="'.$_SESSION['logged_in_user'].'"';
+				if (isset($_SESSION['logged_in_user']) && mysqli_fetch_row(mysqli_query($link, $query)) != NULL)
+					echo '<input type="submit" class="catlist" name="cat" value="Admin" />';
+			?>
 			<input type="submit" class="catlist" name="cat" value="Subject" />
 			<hr/>
 			<input type="submit" class="catlist" name="cat" value="All Products" />
