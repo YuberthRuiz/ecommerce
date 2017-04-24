@@ -76,6 +76,7 @@
 		<?php
 			populate_main();
 		?>
+		<div class="cartitm" style="margin-bottom: 0.5%; margin-top:1.5%; background-color:transparent; height: 1%;"></div>
 		<br/>
 	</div>
 </div>

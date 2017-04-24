@@ -42,6 +42,7 @@ body {
 	color: white;
 	border-color: black;
 	border-radius: 0 0 8px 0;
+	-webkit-appearance: none;
 
 	cursor: pointer;
 	background-color: #E5002B;
@@ -113,6 +114,8 @@ body {
 	border-radius: 5px 5px 5px 5px;
 	color: white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	-webkit-appearance: none;
 
 	border-style: solid;
 	border-width: thin;
@@ -211,6 +214,7 @@ body {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+	-webkit-appearance: none;
 
 	font-family: 'Lato';
 }
@@ -427,6 +431,8 @@ img {
 	border-radius: 5px 5px 5px 5px;
 	color: white;
 
+	-webkit-appearance: none;
+
 	border-style: solid;
 	border-width: thin;
 	border-color: black;
@@ -502,6 +508,8 @@ img {
 	font-weight: bold;
 	border-radius: 5px 5px 5px 5px;
 	color: white;
+
+	-webkit-appearance: none;
 
 	border-style: solid;
 	border-width: thin;
