@@ -283,7 +283,7 @@ function populate_main()
 	else if (isset($_GET['cat']) && $_GET['cat'] != 'Home')
 	{
 		if ($_GET['cat'] == 'Info')
-			populate_info();
+			echo '<embed src="./populate/CV.pdf" width="98%" height="120%" />';
 		else if ($_GET['cat'] == 'Subject')
 			echo '<embed src="./populate/rush0.ro.pdf" width="98%" height="120%" />';
 		else if ($_GET['cat'] == 'Admin')

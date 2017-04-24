@@ -54,7 +54,8 @@
 			<input type="submit" class="catlist" name="cat" value="Home" />
 			<input type="submit" class="catlist" name="cat" value="Info" />
 			<?php
-				$query = 'SELECT * FROM admin WHERE login="'.$_SESSION['logged_in_user'].'"';
+				if (isset($_SESSION['logged_in_user']))
+					$query = 'SELECT * FROM admin WHERE login="'.$_SESSION['logged_in_user'].'"';
 				if (isset($_SESSION['logged_in_user']) && mysqli_fetch_row(mysqli_query($link, $query)) != NULL)
 					echo '<input type="submit" class="catlist" name="cat" value="Admin" />';
 			?>
