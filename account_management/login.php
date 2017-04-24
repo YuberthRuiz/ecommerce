@@ -17,8 +17,7 @@ function login()
 	else
 	{
 		$passwd = hash("SHA1", $_POST['passwd']);
-		$login = mysqli_real_escape_string($link, $_POST['login']);
-		$query = 'SELECT login, passwd FROM usr WHERE login="'.$login.'" AND passwd="'.$passwd.'"';
+		$query = 'SELECT login, passwd FROM usr WHERE login="'.$_POST['login'].'" AND passwd="'.$passwd.'"';
 		$array = mysqli_query($link, $query);
 		if (mysqli_fetch_assoc($array) === NULL)
 			echo "<script type='text/javascript'>alert('Login details incorrect!')</script>";

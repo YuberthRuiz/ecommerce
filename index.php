@@ -25,8 +25,14 @@
 
 	<div class="topbar">
 		<div class="connect">
-			<?php login_main()?>
-			<?php connect_main()?>
+			<?php 
+				foreach ($_GET as $key => $value)
+					$_GET[$key] = mysqli_real_escape_string($link, $value);
+				foreach ($_POST as $key => $value)
+					$_POST[$key] = mysqli_real_escape_string($link, $value);
+				login_main();
+				connect_main();
+			?>
 		</div>
 		<div class="containertop">
 			<form method="GET" action=".">
@@ -34,7 +40,7 @@
 				<input type="text" class="searchtext" name="searchtext" placeholder="Search for item name...">
 			</form>
 			<form method="GET" action=".">
-				<input type="submit" class="logocart" name="cart" value="My Cart">
+				<button type="submit" class="logocart" name="cat" value="mycart">My Cart</button>
 			</form>
 		</div>
 		<form method="GET" action=".">
@@ -71,7 +77,6 @@
 		?>
 		<br/>
 	</div>
-
 </div>
 
 </body>

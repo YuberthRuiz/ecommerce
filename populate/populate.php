@@ -1,6 +1,7 @@
 <?php
 
 include ('./data_management/admin.php');
+include ('./account_management/cart.php');
 
 function populate_catlist()
 {
@@ -21,7 +22,23 @@ function populate_allitms()
 	$nbprod = mysqli_query($link, 'SELECT COUNT(*) FROM itm');
 	echo '<div class="itmtitle">Total: '.mysqli_fetch_row($nbprod)[0]." products</div>";
 	while ($cat = mysqli_fetch_row($result))
-		echo '<div class="itmlist">'.$cat[1].'</div>';
+		echo '
+	<div class="itmlist">
+		<div class="itmname">'.$cat[1].'</div>
+		<div class="itmimg">
+			<img src="./imgs/'.$cat[1].'.jpg">
+		</div>
+		<div class="itmmidcontainer">
+			<div class="itmstock">Stock: '.$cat[2].'</div>
+		</div>
+		<div class="itmbotcontainer">
+			<div class="itmprice">'.$cat[3].' RON</div>
+			<form method="POST" action=".">
+				<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+			</form>
+		</div>
+	</div>
+	';
 }
 
 function populate_uncategorized()
@@ -33,7 +50,23 @@ function populate_uncategorized()
 	$nbprod = mysqli_query($link, 'SELECT COUNT(*) FROM itm WHERE itm_id NOT IN (SELECT itm_id FROM itm_cat)');
 	echo '<div class="itmtitle">Total uncategorized: '.mysqli_fetch_row($nbprod)[0]." products</div>";
 	while ($cat = mysqli_fetch_row($result))
-		echo '<div class="itmlist">'.$cat[1].'</div>';
+		echo '
+	<div class="itmlist">
+		<div class="itmname">'.$cat[1].'</div>
+		<div class="itmimg">
+			<img src="./imgs/'.$cat[1].'.jpg">
+		</div>
+		<div class="itmmidcontainer">
+			<div class="itmstock">Stock: '.$cat[2].'</div>
+		</div>
+		<div class="itmbotcontainer">
+			<div class="itmprice">'.$cat[3].' RON</div>
+			<form method="POST" action=".">
+				<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+			</form>
+		</div>
+	</div>
+	';
 }
 
 function populate_category()
@@ -52,16 +85,50 @@ function populate_category()
 	$nbprod = mysqli_query($link, 'SELECT COUNT(*) FROM itm_cat WHERE cat_id="'.$cat_id.'"');
 	echo '<div class="itmtitle">'.$_GET['cat'].": ".mysqli_fetch_row($nbprod)[0]." products</div>";
 	while ($cat = mysqli_fetch_row($result))
-		echo '<div class="itmlist">'.$cat[1].'</div>';
+		echo '
+	<div class="itmlist">
+		<div class="itmname">'.$cat[1].'</div>
+		<div class="itmimg">
+			<img src="./imgs/'.$cat[1].'.jpg">
+		</div>
+		<div class="itmmidcontainer">
+			<div class="itmstock">Stock: '.$cat[2].'</div>
+		</div>
+		<div class="itmbotcontainer">
+			<div class="itmprice">'.$cat[3].' RON</div>
+			<form method="POST" action=".">
+				<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+			</form>
+		</div>
+	</div>
+	';
 }
 
 function populate_home()
 {
 	global $link;
 
+	include ('./htmls/home.html');
+
 	$result = mysqli_query($link, "SELECT * FROM `itm` ORDER BY RAND() LIMIT 3");
 	while ($cat = mysqli_fetch_row($result))
-		echo '<div class="itmlist">'.$cat[1].'</div>';
+		echo '
+	<div class="itmlist">
+		<div class="itmname">'.$cat[1].'</div>
+		<div class="itmimg">
+			<img src="./imgs/'.$cat[1].'.jpg">
+		</div>
+		<div class="itmmidcontainer">
+			<div class="itmstock">Stock: '.$cat[2].'</div>
+		</div>
+		<div class="itmbotcontainer">
+			<div class="itmprice">'.$cat[3].' RON</div>
+			<form method="POST" action=".">
+				<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+			</form>
+		</div>
+	</div>
+	';
 }
 
 function populate_search()
@@ -76,12 +143,45 @@ function populate_search()
 	}
 	else
 	{
+		echo '<div class="itmtitle">Products that match the search "'.$_GET['searchtext'].'":</div>';
 		$result = mysqli_query($link, 'SELECT * FROM `itm` WHERE name LIKE "%'.$_GET['searchtext'].'%"');
 		if ($cat = mysqli_fetch_row($result))
 		{
-			echo '<div class="itmlist">'.$cat[1].'</div>';
+			echo '
+			<div class="itmlist">
+				<div class="itmname">'.$cat[1].'</div>
+				<div class="itmimg">
+					<img src="./imgs/'.$cat[1].'.jpg">
+				</div>
+				<div class="itmmidcontainer">
+					<div class="itmstock">Stock: '.$cat[2].'</div>
+				</div>
+				<div class="itmbotcontainer">
+					<div class="itmprice">'.$cat[3].' RON</div>
+					<form method="POST" action=".">
+						<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+					</form>
+				</div>
+			</div>
+			';
 			while ($cat = mysqli_fetch_row($result))
-				echo '<div class="itmlist">'.$cat[1].'</div>';
+				echo '
+				<div class="itmlist">
+					<div class="itmname">'.$cat[1].'</div>
+					<div class="itmimg">
+						<img src="./imgs/'.$cat[1].'.jpg">
+					</div>
+					<div class="itmmidcontainer">
+						<div class="itmstock">Stock: '.$cat[2].'</div>
+					</div>
+					<div class="itmbotcontainer">
+						<div class="itmprice">'.$cat[3].' RON</div>
+						<form method="POST" action=".">
+							<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add to Cart</button>
+						</form>
+					</div>
+				</div>
+				';
 		}
 		else
 		{
@@ -92,9 +192,85 @@ function populate_search()
 	}
 }
 
+function populate_admin()
+{
+	global $link;
+
+	include ('./htmls/adminmenu.html');
+
+	echo '
+		<div class="cartitm" style="margin-bottom: 1%; margin-top:3%; ">Users carts:</div>
+		';
+	echo '
+		<div class="cartitm" style="margin-bottom: 3%; margin-top: 0;">
+			<div class="cartcol" style="border-right-style: none; margin-left: 3%;">Item Name</div>
+			<div class="cartcol" style="border-right-style: none">Amount</div>
+			<div class="cartcol">Price (RON)</div>
+		</div>
+		';
+	$result = mysqli_query($link, 'SELECT login FROM usr_itm GROUP BY login');
+	while ($login = mysqli_fetch_row($result))
+	{
+		$res2 = mysqli_query($link, 'SELECT itm.*, usr_itm.amount FROM itm JOIN usr_itm ON usr_itm.itm_id = itm.itm_id WHERE login="'.$login[0].'"');
+		echo '<div class="itmtitle">'.$login[0]."'s cart:</div>";
+		while ($itmb = mysqli_fetch_row($res2))
+			echo '
+				<div class="cartitm" style="margin-bottom: 0;">
+					<div class="cartcol" style="border-right-style: none; margin-left: 3%;">'.$itmb[1].'</div>
+					<div class="cartcol" style="border-right-style: none">'.$itmb[4].'</div>
+					<div class="cartcol">'.$itmb[3].'</div>
+				</div>
+				';
+		echo '<div class="cartitm" style="margin-bottom: 0.5%; margin-top:1.5%; background-color:transparent; height: 1%;"></div>';
+	}
+
+}
+
+function populate_addeditem()
+{
+	global $link;
+
+	$result = mysqli_query($link, 'SELECT * FROM `itm` WHERE itm_id="'.$_POST['add_cart'].'"');
+	$cat = mysqli_fetch_row($result);
+
+	if ($cat[2] > 0)
+	{
+		if (isset($_SESSION['logged_in_user']))
+			add_to_cart($_POST['add_cart']);
+		else
+			add_to_cart_session($_POST['add_cart']);
+	}
+	else
+		echo "<script type='text/javascript'>alert('There are no ".$cat[1]." in stock!')</script>";
+	$result = mysqli_query($link, 'SELECT * FROM `itm` WHERE itm_id="'.$_POST['add_cart'].'"');
+	$cat = mysqli_fetch_row($result);
+	echo '<div class="itmtitle">Added to cart:</div>';
+	echo '
+	<div class="itmlist" style="position: absolute; top: 25%; left:30%;">
+		<div class="itmname">'.$cat[1].'</div>
+		<div class="itmimg">
+			<img src="./imgs/'.$cat[1].'.jpg">
+		</div>
+		<div class="itmmidcontainer">
+			<div class="itmstock">Stock: '.$cat[2].'</div>
+		</div>
+		<div class="itmbotcontainer">
+			<div class="itmprice">'.$cat[3].' RON</div>
+			<form method="POST" action=".">
+				<button type="submit" class="itmbuy" name="add_cart" value="'.$cat[0].'">Add Another</button>
+			</form>
+		</div>
+	</div>
+	';
+}
+
 function populate_main()
 {
-	if (isset($_POST['create_account']) || isset($_POST['create_user']))
+	if (isset($_SESSION['cart'], $_SESSION['logged_in_user']))
+		add_session_cart();
+	if (isset($_POST['rm_cart']))
+		rm_cart($_POST['rm_cart']);
+	else if (isset($_POST['create_account']) || isset($_POST['create_user']))
 		include ('./htmls/create_account.html');
 	else if (isset($_POST['delete_account']))
 		include ('./htmls/delete_account.html');
@@ -102,21 +278,23 @@ function populate_main()
 		populate_search();
 	else if (isset($_POST['adminquery']))
 		adminquery();
+	else if (isset($_POST['add_cart']))
+		populate_addeditem();
 	else if (isset($_GET['cat']) && $_GET['cat'] != 'Home')
 	{
 		if ($_GET['cat'] == 'Info')
 			populate_info();
 		else if ($_GET['cat'] == 'Subject')
-			populate_subject();
+			echo '<embed src="./populate/rush0.ro.pdf" width="98%" height="120%" />';
 		else if ($_GET['cat'] == 'Admin')
 		{
 			if (check_admin())
-				include ('./htmls/adminmenu.html');
+				populate_admin();
 			else
 				populate_home();
 		}
-		else if ($_GET['cat'] == 'Basket')
-			populate_basket();
+		else if ($_GET['cat'] == 'mycart')
+			show_cart();
 		else if ($_GET['cat'] == 'All Products')
 			populate_allitms();
 		else if ($_GET['cat'] == 'Uncategorized')
@@ -126,6 +304,7 @@ function populate_main()
 	}
 	else
 		populate_home();
+
 }
 ?>
 
