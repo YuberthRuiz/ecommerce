@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+	<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 	<meta charset="UTF-8">
 	<title>TechSwag - 
 		<?php
@@ -44,7 +44,7 @@
 			</form>
 		</div>
 		<form method="GET" action=".">
-			<input type="submit" class="logotech" name="return" value="TechSwag"/>
+			<button type="submit" class="logotech" name="return" value="TechSwag"><span style="color: white;">Tech</span><span style="color: #E7192D">swag</span></button>
 		</form>
 	</div>
 
