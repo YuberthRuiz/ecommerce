@@ -14,11 +14,11 @@ No templates used. Obviously.
 
 ## Install Notes
 
-1	PHP and SQL server needed (ex: MAMP).
-2	edit ./data_management/connectdb.php accordingly:
-  1	Host: $dbhost
-  2 Username: $dbuser
-  3 Password: $dbpass
-  4 Database: $dbname
-3	access [link]/install.php to install tables (ex: http://localhost:8888/install.php)
-4	Ready to go! [link]/index.php (ex: http://localhost:8888)
+1.	PHP and SQL server needed (ex: MAMP).
+2.	edit ./data_management/connectdb.php accordingly:
+  1.	Host: $dbhost
+  2.	Username: $dbuser
+  3.	Password: $dbpass
+  4.	Database: $dbname
+3.	access [link]/install.php to install tables (ex: http://localhost:8888/install.php)
+4.	Ready to go! [link]/index.php (ex: http://localhost:8888)
