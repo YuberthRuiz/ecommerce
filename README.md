@@ -8,4 +8,5 @@ This is an e-commerce website with the following functionalities:
 -	Search query for items
 -	Dynamic Stock management
 -	Password encryption. Protected against SQL injection
+
 No templates used. Obviously.
