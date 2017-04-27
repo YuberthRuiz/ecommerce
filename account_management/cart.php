@@ -78,6 +78,7 @@ function show_cart()
 				<div class="cartcol">Price (RON)</div>
 			</div>
 			';
+		$total = 0;
 		while ($cartitm = mysqli_fetch_row($result))
 		{
 			$total += $cartitm[3] * $cartitm[4];
@@ -92,8 +93,6 @@ function show_cart()
 			</div>
 			';
 		}
-		if (!isset($total))
-			$total = 0;
 		echo '
 			<div class="cartitm" style="margin-top: 3%;">
 				<div class="cartcol" style="border-right-style: none; margin-left: 3%;">Total: </div>

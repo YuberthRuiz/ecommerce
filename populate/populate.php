@@ -283,9 +283,9 @@ function populate_main()
 	else if (isset($_GET['cat']) && $_GET['cat'] != 'Home')
 	{
 		if ($_GET['cat'] == 'Info')
-			echo '<embed src="./populate/CV.pdf" width="98%" height="120%" />';
+			echo '<iframe src="https://drive.google.com/file/d/0B2v9WdT_KGFWNU5tVEtycE1uMWs/preview" width="98%" height="100%"></iframe>';
 		else if ($_GET['cat'] == 'Subject')
-			echo '<embed src="./populate/rush0.ro.pdf" width="98%" height="120%" />';
+			echo '<iframe src="https://drive.google.com/file/d/0B2v9WdT_KGFWSDB2bkFmWlJOckU/preview" width="98%" height="100%"></iframe>';
 		else if ($_GET['cat'] == 'Admin')
 		{
 			if (check_admin())
