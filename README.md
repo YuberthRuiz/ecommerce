@@ -10,3 +10,15 @@ This is an e-commerce website with the following functionalities:
 -	Password encryption. Protected against SQL injection
 
 No templates used. Obviously.
+
+
+## Install Notes
+
+-	PHP and SQL server needed (ex: MAMP).
+-	edit ./data_management/connectdb.php accordingly:
+  -	Host: $dbhost
+  - Username: $dbuser
+  - Password: $dbpass
+  - Database: $dbname
+-	access [link]/install.php to install tables (ex: http://localhost:8888/install.php)
+-	Ready to go! [link]/index.php (ex: http://localhost:8888)
